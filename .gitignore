@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+stopgate/state/
+stopgate/sandbox/
+stopgate/*.log
