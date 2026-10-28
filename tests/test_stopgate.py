@@ -24,7 +24,7 @@ class StopGateTest(unittest.TestCase):
         fake.chmod(0o755)
         self.env = {**os.environ, "HOME": str(self.home), "PATH": f"{self.tmp}:{os.environ['PATH']}"}
         self.env.pop("STOPGATE_CHILD", None)
-        subprocess.run([str(ROOT / "install.sh")], env=self.env, check=True, capture_output=True)
+        subprocess.run(["bash", str(ROOT / "install.sh")], env=self.env, check=True, capture_output=True)
         self.hook = self.home / ".claude/hooks/stopgate/stopgate.py"
         self.transcript = self.tmp / "t.jsonl"
         self.transcript.write_text("\n".join(json.dumps(e) for e in [
@@ -43,7 +43,7 @@ class StopGateTest(unittest.TestCase):
         return json.loads(out.stdout) if out.stdout.strip() else None
 
     def test_install_registers_hook_once(self):
-        subprocess.run([str(ROOT / "install.sh")], env=self.env, check=True, capture_output=True)
+        subprocess.run(["bash", str(ROOT / "install.sh")], env=self.env, check=True, capture_output=True)
         cfg = json.loads((self.home / ".claude/settings.json").read_text())
         cmds = [h["command"] for g in cfg["hooks"]["Stop"] for h in g["hooks"]]
         self.assertEqual(cmds, [str(self.hook)])
@@ -72,7 +72,7 @@ class StopGateTest(unittest.TestCase):
         self.assertIsNone(self.stop("continue", STOPGATE_DISABLE="1"))
 
     def test_uninstall(self):
-        subprocess.run([str(ROOT / "uninstall.sh")], env=self.env, check=True, capture_output=True, cwd=self.tmp)
+        subprocess.run(["bash", str(ROOT / "uninstall.sh")], env=self.env, check=True, capture_output=True, cwd=self.tmp)
         cfg = json.loads((self.home / ".claude/settings.json").read_text())
         self.assertEqual(cfg["hooks"]["Stop"], [])
         self.assertFalse(self.hook.exists())

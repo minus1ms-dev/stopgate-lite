@@ -23,9 +23,9 @@ Requirements: the Claude Code CLI (`claude`) on PATH, Python 3.9+, macOS or Linu
 
 Install
 -------
-  ./install.sh             # user-wide (~/.claude/settings.json)
-  ./install.sh --project   # this project only (./.claude/settings.json)
-  ./uninstall.sh           # remove
+  bash install.sh             # user-wide (~/.claude/settings.json)
+  bash install.sh --project   # this project only (./.claude/settings.json)
+  bash uninstall.sh           # remove
 
 Restart Claude Code (or run /hooks) afterwards.
 
