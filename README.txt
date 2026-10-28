@@ -23,6 +23,12 @@ Requirements: the Claude Code CLI (`claude`) on PATH, Python 3.9+, macOS or Linu
 
 Install
 -------
+As a Claude Code plugin (Claude Code 2.1.275 or later), inside Claude Code:
+
+  /plugin install stopgate-lite --marketplace minus1ms-dev/stopgate-lite
+
+Or manually, from a clone of this repo:
+
   bash install.sh             # user-wide (~/.claude/settings.json)
   bash install.sh --project   # this project only (./.claude/settings.json)
   bash uninstall.sh           # remove

@@ -1,0 +1,10 @@
+{
+  "name": "stopgate-lite",
+  "version": "1.0.0",
+  "description": "Stop hook: a Haiku reviewer sends Claude Code back to work when it ends a turn before the task is done.",
+  "author": { "name": "minus1ms", "url": "https://github.com/minus1ms-dev" },
+  "homepage": "https://github.com/minus1ms-dev/stopgate-lite",
+  "repository": "https://github.com/minus1ms-dev/stopgate-lite",
+  "license": "MIT",
+  "keywords": ["hooks", "stop-hook", "review", "agents"]
+}

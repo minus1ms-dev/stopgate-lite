@@ -1,0 +1,16 @@
+{
+  "name": "stopgate",
+  "description": "StopGate: Stop-hook reviewers that keep Claude Code working until the task is actually done.",
+  "owner": {
+    "name": "minus1ms",
+    "url": "https://github.com/minus1ms-dev"
+  },
+  "plugins": [
+    {
+      "name": "stopgate-lite",
+      "source": "./",
+      "description": "Stop hook: a Haiku reviewer sends Claude Code back to work when it ends a turn before the task is done.",
+      "version": "1.0.0"
+    }
+  ]
+}
